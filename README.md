@@ -5,19 +5,33 @@ Este projeto visa exemplificar a utilização de filtro e interceptor no Spring,
 
 ### Ambiente Utilizado
 * Java JDK 17
-* Spring 2.60
-* Eclipse
-* Ubuntu 20.04
+* Spring 2.6.3
+* Intellij Community
+* Sistema Operacional Windows
 
 ### Diretório do Projeto
 
+Abaixo iremos descrever brevemente o que cada classe tem por objetivo de realizar.
+
 ```sh
 .
-├── consumer/    # aplicação que faz uso do código do stater, um conjunto de classes de configuraçao e um arquivo xml que configura o log.
-├── starter/     #  conjunto de classes que deve ser utilizada por todas as outras.
-├── .gitignore   # arquivos que são desconsiderados pelo git
-├── pom.xml      # dependências do projeto
-└── README.md
+├── src/
+│   ├── FilterAppConfig # classe de configuração utilizada para registrar os filtros.
+│   ├── FirstFilter # primeiro filter que irá capturar informações da requisição
+│   ├── GeneralInterceptor # Interceptador simples que basicamente cálcula o tempo que demorou a requisição.
+│   ├── HelloController # controller utilizado para retornar "Hello World", apenas para mostrar que funciona com diferentes controller, sem nenhuma alteração.
+│   ├── InterceptorAppConfig # registra o interceptor junto ao spring, permitindo sua execução
+│   ├── MyComponent # componente que será injetado no interceptor para demonstrar que existe essa possibilidade.
+│   ├── SecondFilter # filter que será exectudado em segundo quando uma requisição for realizada.
+│   ├── ThirdFilter # filter que será exectudado em terceiro quando uma requisição for realizada.
+│   ├── User # entidade que armazena o conteúdo de um usuário
+│   ├── UserController # controller que possui um método GET que retorna o usuário.
+│   └── WebApplication # classe que chama  todas as outras
+├── .gitignore # informa quais arquivos  o git deve ignorar
+├── License # lincesa de utilização do código (MIT)
+├── pom.xml # arquivo que contém todas as dependências do projeto
+├── README.md # este arquivo
+└── slides.pdf # slides utilizandos durante a apresentação da aula.
 ```
 
 
