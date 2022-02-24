@@ -1,5 +1,6 @@
 package br.com.rocketseat.ex.interceptor;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,10 +8,13 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class FilterAppConfig {
 
+    @Autowired
+    RateLimiter rateLimiter;
+
     @Bean
     public FilterRegistrationBean<FirstFilter> registerFirstFilter() {
         FilterRegistrationBean <FirstFilter> registrationBean = new FilterRegistrationBean();
-        FirstFilter customURLFilter = new FirstFilter();
+        FirstFilter customURLFilter = new FirstFilter(rateLimiter);
 
         registrationBean.setFilter(customURLFilter);
         // registrationBean.addUrlPatterns("/greeting/*");

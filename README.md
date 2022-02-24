@@ -1,6 +1,6 @@
 <img src="https://storage.googleapis.com/golden-wind/experts-club/capa-github.svg" />
 
-## Utilizando Interceptor ou filtro para capturar dados com Strping
+## Utilizando Interceptor ou filtro para capturar dados com Spring
 Este projeto visa exemplificar a utilização de filtro e interceptor no Spring, sendo que o intecetor está no contexto do spring, viabilizando  o desenvolvedor conseguir realizar injeção de dependência, enquanto que no filtro o mesmo está numa camada acima, não conseguindo fazer uso de objetos do contexto do Spring. O filtro apresente uma performance superior, muito embora com eles conseguimos armazenar dados da requisição, capturar os parâmetros que foram utilizando na mesma,  por exemplo o Sptring Security usa esse ferramental para verificar se tem o token de segurança se faz presente.
 
 ### Ambiente Utilizado
@@ -22,6 +22,7 @@ Abaixo iremos descrever brevemente o que cada classe tem por objetivo de realiza
 │   ├── HelloController # controller utilizado para retornar "Hello World", apenas para mostrar que funciona com diferentes controller, sem nenhuma alteração.
 │   ├── InterceptorAppConfig # registra o interceptor junto ao spring, permitindo sua execução
 │   ├── MyComponent # componente que será injetado no interceptor para demonstrar que existe essa possibilidade.
+│   ├── RateLimiter # function that stores the number of requests for the path and checks if it has reached the limit.
 │   ├── SecondFilter # filter que será exectudado em segundo quando uma requisição for realizada.
 │   ├── ThirdFilter # filter que será exectudado em terceiro quando uma requisição for realizada.
 │   ├── User # entidade que armazena o conteúdo de um usuário
